@@ -12,3 +12,6 @@ persist_with: proyecto_sukarne_default_datagroup
 
 explore: sukarne_tabla {}
 explore: prediccion_japon {}
+explore: prediccion_mx {}
+explore: prediccion_tiusa {}
+explore: prediccion_exp {}
