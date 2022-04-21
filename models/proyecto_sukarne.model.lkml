@@ -11,3 +11,4 @@ datagroup: proyecto_sukarne_default_datagroup {
 persist_with: proyecto_sukarne_default_datagroup
 
 explore: sukarne_tabla {}
+explore: prediccion_japon {}
