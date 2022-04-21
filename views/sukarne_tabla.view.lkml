@@ -145,6 +145,7 @@ dimension: gposku {
 dimension: grupo {
   type: string
   sql: ${TABLE}.GRUPO ;;
+  drill_fields: [tipocliente_pmb]
 }
 
 dimension: gstcomercial {
