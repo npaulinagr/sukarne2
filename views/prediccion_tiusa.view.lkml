@@ -16,6 +16,11 @@ view: prediccion_tiusa {
     datatype: date
     sql: ${TABLE}.fechas ;;
   }
+  dimension: fechastiusa.id {
+    type: string
+    sql: ${TABLE}.fechas ;;
+    primary_key: yes
+  }
 
   dimension: predicted_ipgasto {
     type: number

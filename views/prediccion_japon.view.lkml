@@ -17,6 +17,12 @@ view: prediccion_japon {
     sql: ${TABLE}.fechas ;;
   }
 
+  dimension: fechasjp.id {
+    type: string
+    sql: ${TABLE}.fechas ;;
+    primary_key: yes
+  }
+
   dimension: predicted_ipgasto {
     type: number
     sql: ${TABLE}.predicted_ipgasto ;;
