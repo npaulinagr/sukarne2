@@ -836,18 +836,18 @@ measure: uniUtilidadOperativaER{
 }
 
 set: drillFlete {
-  fields: [uniFleteTotal,uniFlete, uniFleteExpo, uniFleteImpNica]
+  fields: [grupo,uniFleteTotal,uniFlete, uniFleteExpo, uniFleteImpNica]
 }
 
   set: drillEmpaque {
-    fields: [uniEmpaqueTotal,uniDIFEmpaque,uniEmpBasico]
+    fields: [grupo, uniEmpaqueTotal,uniDIFEmpaque,uniEmpBasico]
 
 }
   set: drillCstAnden {
-    fields: [uniCostoAnden, uniPMBNeto,uniPMB_Efecto_SKU,unDIFPzaBase, uniCSTADD, uniCSTADDB, uniCSTVATRASPASO, uniMejora, uniRebanar, uniEmpaqueTotal, uniIngrediente, uniGastoOperativo, uniCongelamiento, uniDespachoLinea, uniArancel]
+    fields: [grupo, uniCostoAnden, uniPMBNeto,uniPMB_Efecto_SKU,unDIFPzaBase, uniCSTADD, uniCSTADDB, uniCSTVATRASPASO, uniMejora, uniRebanar, uniEmpaqueTotal, uniIngrediente, uniGastoOperativo, uniCongelamiento, uniDespachoLinea, uniArancel]
 }
   set:utilidadOp{
-    fields: [uniCstAdd_Caja]
+    fields: [grupo, uniUtilidadOperativa, uniCstAdd_Caja]
       }
 
 }
