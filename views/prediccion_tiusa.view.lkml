@@ -25,6 +25,7 @@ view: prediccion_tiusa {
   dimension: predicted_ipgasto {
     type: number
     sql: ${TABLE}.predicted_ipgasto ;;
+    value_format: "#,###.00"
   }
 
   measure: count {
