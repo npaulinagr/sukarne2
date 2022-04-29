@@ -654,200 +654,200 @@ measure: ipCstAdd_Caja{
   value_format: "#,###"
 }
 
-measure: PrecioVenta{
+measure: Precio_Factura{
   type: number
   sql:  ${ipIngresoNeto}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
 
-measure: uniGastoComercial{
+measure: Gasto_Comercial{
   type: number
   sql:  ${ipGastoComercial}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniFlete{
+measure: Flete{
   type: number
   sql:  ${ipFlete}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniFleteExpo{
+measure: Flete_Expo{
   type: number
   sql:  ${ipFleteExpo}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniFleteImpNica{
+measure: Flete_Imp_Nicaragua{
   type: number
   sql:  ${ipFleteImpNica}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniFleteTotal{
+measure: Flete_Total{
   type: number
   drill_fields: [drillFlete*]
-  sql:  ${uniFleteImpNica}+${uniFleteExpo}+${uniFlete} ;;
-  value_format: "#,###.00"
+  sql:  ${Flete_Imp_Nicaragua}+${Flete_Expo}+${Flete} ;;
+  value_format: "#,##0.00"
 }
 
-measure: uniDirComercial{
+measure: Dir_Comercial{
   type: number
   sql:  ${ipDirComercial}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: PrecioNetoPAC{
+measure: Precio_NetoPAC{
   type: number
-  sql:  ${PrecioVenta}-${uniGastoComercial}-${uniFleteTotal}-${uniDirComercial} ;;
-  value_format: "#,###.00"
+  sql:  ${Precio_Factura}-${Gasto_Comercial}-${Flete_Total}-${Dir_Comercial} ;;
+  value_format: "#,##0.00"
 }
 
-measure: uniPMBNeto{
+measure: PMB_Neto{
   type: number
   sql:  ${ipPMBNeto}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
 measure: uniCVMixto{
   type: number
   sql:  ${ipCV_MIXTO}/ NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniPMB_Efecto_SKU{
+measure: PMB_Efecto_SKU{
   type: number
-  sql:  ${uniCVMixto} -${uniPMBNeto};;
-  value_format: "#,###.00"
+  sql:  ${uniCVMixto} -${PMB_Neto};;
+  value_format: "#,##0.00"
 }
 
 
-measure: unDIFPzaBase{
+measure: DIF_Pza_Base{
   type: number
   sql:  ${ipDIFPzaBase} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
 
-measure: uniCSTADD{
+measure: CstAdd{
   type: number
   sql:  ${ipCSTADD} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniCSTADDB{
+measure: CstAddB{
   type: number
   sql:  ${ipCSTADDB} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniCSTVATRASPASO{
+measure: Cst_VA_Traspaso{
   type: number
   sql:  ${ipCSTVATRASPASO} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniMejora{
+measure: Mejora{
   type: number
   sql:  ${ipMejora} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniRebanar{
+measure: Rebanar{
   type: number
   sql:  ${ipRebanar} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniDIFEmpaque{
+measure: Dif_Empaque{
   type: number
   sql:  ${ipDIFEMPAQUE} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniEmpBasico{
+measure: Empaque_Basico{
   type: number
   sql:  ${ipEmpBasico} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniEmpaqueTotal{
+measure: Material_Empaque{
   type: number
   drill_fields: [drillEmpaque*]
-  sql:  ${uniDIFEmpaque} + ${uniEmpBasico} ;;
-  value_format: "#,###.00"
+  sql:  ${Dif_Empaque} + ${Empaque_Basico} ;;
+  value_format: "#,##0.00"
 }
 
-measure: uniIngrediente{
+measure: Ingrediente{
   type: number
   sql:  ${ipIngrediente} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniGastoOperativo{
+measure: Gasto_Operativo{
   type: number
   sql:  ${ipGastoOperativo} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniCongelamiento{
+measure: Congelamiento{
   type: number
   sql:  ${ipCongelamiento} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniDespachoLinea{
+measure: Despacho_Linea{
   type: number
   sql:  ${ipDespachoLinea} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniArancel{
+measure: Arancel{
   type: number
   sql:  ${ipArancel} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniCostoAnden{
+measure: Costo_Anden{
   type: number
   drill_fields: [drillCstAnden*]
-  sql:  (${uniCVMixto} +${unDIFPzaBase}+${uniCSTADD}+${uniCSTADDB}+${uniCSTVATRASPASO}+${uniMejora}+${uniRebanar}+${uniEmpaqueTotal}+${uniIngrediente}+${uniGastoOperativo}+${uniCongelamiento}+${uniDespachoLinea}+${uniArancel}) ;;
-  value_format: "#,###.00"
+  sql:  (${uniCVMixto} +${DIF_Pza_Base}+${CstAdd}+${CstAddB}+${Cst_VA_Traspaso}+${Mejora}+${Rebanar}+${Material_Empaque}+${Ingrediente}+${Gasto_Operativo}+${Congelamiento}+${Despacho_Linea}+${Arancel}) ;;
+  value_format: "#,##0.00"
 }
 
-measure: uniUtilidadOperativa{
+measure: Utilidad_Operativa{
   type: number
   drill_fields: [utilidadOp*]
-  sql:   ((${PrecioNetoPAC}- ${uniCostoAnden}) * ${Kilos});;
-  value_format: "#,###.00"
+  sql:   (((${Precio_NetoPAC}- ${Costo_Anden}) * ${Kilos})/100000000);;
+  value_format: "#,##0.00"
 }
 
-measure: uniCstAdd_Caja{
+measure: CstAdd_Caja{
   type: number
   sql:  ${ipCstAdd_Caja} / NULLIF(${Kilos},0) ;;
-  value_format: "#,###.00"
+  value_format: "#,##0.00"
 }
 
-measure: uniUtilidadOperativaER{
+measure: Utilidad_Operativa_ER{
   type: number
-  sql:   (${uniUtilidadOperativa} - ${uniCstAdd_Caja}) ;;
-  value_format: "#,###.00"
+  sql:   (${Utilidad_Operativa} - ${CstAdd_Caja}) ;;
+  value_format: "#,##0.00"
 }
 
 set: drillFlete {
-  fields: [grupo,uniFleteTotal,uniFlete, uniFleteExpo, uniFleteImpNica]
+  fields: [grupo,Flete_Total,Flete, Flete_Expo, Flete_Imp_Nicaragua]
 }
 
   set: drillEmpaque {
-    fields: [grupo, uniEmpaqueTotal,uniDIFEmpaque,uniEmpBasico]
+    fields: [grupo, Material_Empaque,Dif_Empaque,Empaque_Basico]
 
 }
   set: drillCstAnden {
-    fields: [grupo, uniCostoAnden, uniPMBNeto,uniPMB_Efecto_SKU,unDIFPzaBase, uniCSTADD, uniCSTADDB, uniCSTVATRASPASO, uniMejora, uniRebanar, uniEmpaqueTotal, uniIngrediente, uniGastoOperativo, uniCongelamiento, uniDespachoLinea, uniArancel]
+    fields: [grupo, Costo_Anden, PMB_Neto,PMB_Efecto_SKU,DIF_Pza_Base, CstAdd, CstAddB, Cst_VA_Traspaso, Mejora, Rebanar, Material_Empaque, Ingrediente, Gasto_Operativo, Congelamiento, Despacho_Linea, Arancel]
 }
   set:utilidadOp{
-    fields: [grupo, uniUtilidadOperativa, uniCstAdd_Caja]
+    fields: [grupo, Utilidad_Operativa, CstAdd_Caja]
       }
 
 }
