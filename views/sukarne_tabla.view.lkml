@@ -145,7 +145,7 @@ dimension: gposku {
 dimension: grupo {
   type: string
   sql: ${TABLE}.GRUPO ;;
-  drill_fields: [tipocliente_pmb]
+  drill_fields: [tipocliente_pmb,producto]
 }
 
 dimension: gstcomercial {
@@ -819,9 +819,16 @@ measure: Costo_Anden{
 measure: Utilidad_Operativa{
   type: number
   drill_fields: [utilidadOp*]
-  sql:   (((${Precio_NetoPAC}- ${Costo_Anden}) * ${Kilos})/100000000);;
-  value_format: "#,##0.00"
+  sql:   (((${Precio_NetoPAC}- ${Costo_Anden}) * ${Kilos})/1000);;
+  value_format: "#,##0"
 }
+
+  measure: Unit_Utilidad_Operativa{
+    type: number
+    drill_fields: [utilidadOp*]
+    sql:   (${Precio_NetoPAC}- ${Costo_Anden});;
+    value_format: "#,##0.00"
+  }
 
 measure: CstAdd_Caja{
   type: number
@@ -830,10 +837,18 @@ measure: CstAdd_Caja{
 }
 
 measure: Utilidad_Operativa_ER{
+    type: number
+    sql:   (((${Utilidad_Operativa} - ${CstAdd_Caja}) * ${Kilos})/1000000) ;;
+    value_format: "#,##0"
+  }
+
+measure: Unit_Utilidad_Operativa_ER{
   type: number
   sql:   (${Utilidad_Operativa} - ${CstAdd_Caja}) ;;
   value_format: "#,##0.00"
 }
+
+
 
 set: drillFlete {
   fields: [grupo,Flete_Total,Flete, Flete_Expo, Flete_Imp_Nicaragua]
